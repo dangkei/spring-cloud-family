@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: user-service
+
+logging:
+  level:
+    org.springframework: info
+    io.github.resilience4j: debug
+server:
+  port: 9082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - hystrix.stream
+          - metrics
+          - prometheus

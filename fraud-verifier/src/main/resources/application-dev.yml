@@ -1,0 +1,17 @@
+server:
+  port: 9081
+
+spring:
+  application:
+    name: fraud-verifier
+logging:
+  level:
+    org.springframework: info
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - metrics
+          - prometheus
+

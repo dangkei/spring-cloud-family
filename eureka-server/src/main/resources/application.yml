@@ -1,0 +1,16 @@
+server: 
+  port: 8761
+
+eureka: 
+  client: 
+    registerWithEureka: false
+    fetchRegistry: false
+
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include:
+          - meyrics
+          - prometheus
+  

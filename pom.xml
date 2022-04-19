@@ -25,6 +25,8 @@
     	<module>card-service</module>
     	<module>gateway-proxy</module>
     	<module>fraud-verifier</module>
+		<module>ignored-service</module>
+    	<module>user-service</module>
     </modules>
     
     <dependencyManagement>

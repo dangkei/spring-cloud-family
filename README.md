@@ -2,6 +2,7 @@
 >并添加自己的注释和学习笔记
 
 # Sample Credit Card application eco-system
+  信用卡申请系统案例
 
 This branch contains the new stack demo. To see the same demo with Spring-Cloud-Netflix stack, check out the branch `old-stack`.
 
@@ -26,7 +27,7 @@ ab -p cardApplication.json -T application/json -c 10 -n 20000 http://localhost:9
 - 用户注册通过user-service服务
 - `fraud-service` called by `card-service` and `user-service` to verify 
   card applications and new users
-- fraud-service服务被card-service和user-service调用，用来验证新卡和新用户的申请
+  申请卡（card-service）和注册用户服务（user-service）调用验证服务（fraud-service）验证提交的新卡信息和新用户信息是否正确
 
 If you want to run a bigger number of requests, you can use the `ab` benchmarking tool:
 如果你需要运行大数据量的请求，可以使用ab
@@ -46,6 +47,14 @@ http GET 10.192.15.124:9083/ignored/test/allowed
 - `ignored` service with `test` endpoint returning 404 via Proxy and `/test/allowed` 
   endpoint returning response from the service.
   ignored服务的test断点通过Proxy和/test/allowed端服务返回404
+  
+  
+  ## 流程分析
+  
+  用户--提交注册申请---->CardService---创建用户请求----通过Proxy---->UserService---验证用户---通过Proxy--->FraudVerifier-返回结果--Proxy-->UserService---用户创建成功---->CardService
+  
+  ---验证卡信息--Proxy-->FraudVerifier---验证通过--Proxy-->CardService--信用卡申请成功-> 用户
+  
 
 ```
 +-------+                         +-------------+       +-------------+          +-------+             +---------------+ +-----------------+ +-------+

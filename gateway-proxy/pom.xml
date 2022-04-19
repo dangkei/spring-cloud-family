@@ -6,7 +6,7 @@
     	<groupId>cn.dangkei</groupId>
     	<artifactId>spring-cloud-family</artifactId>
     	<version>1.0.1</version>
-    <relativePath>..</relativePath>
+    	<relativePath>..</relativePath>
   	</parent>
 	<artifactId>gateway-proxy</artifactId>
 	<name>gateway-proxy</name>

@@ -1,0 +1,18 @@
+server:
+  port: 9084
+ 
+spring:
+  application:
+    name: ignored
+
+logging:
+  level:
+    '[org.springframework]': info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - metrics
+        - prometheus
